@@ -10,5 +10,5 @@ build:
     - "ninja==1.10.2"
     - "torch==2.0.1"
     - "pillow-avif-plugin"
-    - "git+https://github.com/viktorfa/oot_diffusion.git"
+    - "git+https://github.com/leonmak/oot_diffusion.git"
 predict: "predict.py:Predictor"
