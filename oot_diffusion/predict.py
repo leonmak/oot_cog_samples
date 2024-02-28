@@ -1,5 +1,6 @@
 from cog import BasePredictor, Input, Path
 import tempfile
+import pillow_avif
 
 from oot_diffusion import OOTDiffusionModel
 
@@ -32,8 +33,6 @@ class Predictor(BasePredictor):
                           ge=0, le=0xFFFFFFFFFFFFFFFF),
     ) -> list[Path]:
         """Run a single prediction on the model"""
-        print("{}, {}", garment_image, model_image)
-
         generated_images, mask_image = self.model.generate(
             cloth_path=garment_image,
             model_path=model_image,
