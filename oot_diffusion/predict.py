@@ -23,17 +23,19 @@ class Predictor(BasePredictor):
             description="Clear picture of upper body garment",
             default="https://raw.githubusercontent.com/viktorfa/oot_diffusion/main/oot_diffusion/assets/cloth_1.jpg",
         ),
-        steps: int = Input(default=20, description="Inference steps", ge=1, le=40),
+        steps: int = Input(
+            default=20, description="Inference steps", ge=1, le=40),
         guidance_scale: float = Input(
             default=2.0, description="Guidance scale", ge=1.0, le=5.0
         ),
-        seed: int = Input(default=0, description="Seed", ge=0, le=0xFFFFFFFFFFFFFFFF),
+        seed: int = Input(default=0, description="Seed",
+                          ge=0, le=0xFFFFFFFFFFFFFFFF),
     ) -> list[Path]:
         """Run a single prediction on the model"""
 
         generated_images, mask_image = self.model.generate(
-            model_path=model_image,
             cloth_path=garment_image,
+            model_path=model_image,
             steps=steps,
             cfg=guidance_scale,
             seed=seed,
