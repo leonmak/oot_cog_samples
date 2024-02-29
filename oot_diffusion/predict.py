@@ -32,7 +32,9 @@ class Predictor(BasePredictor):
         seed: int = Input(default=0, description="Seed",
                           ge=0, le=0xFFFFFFFFFFFFFFFF),
         garment_category: str = Input(
-            default="upperbody", description="upperbody, bottom, dress")
+            default="upperbody", description="upperbody, lowerbody, dress"),
+        samples: int = Input(default=1, description="Seed", ge=0),
+
     ) -> list[Path]:
         """Run a single prediction on the model"""
         generated_images, mask_image = self.model.generate(
@@ -41,7 +43,7 @@ class Predictor(BasePredictor):
             steps=steps,
             cfg=guidance_scale,
             seed=seed,
-            num_samples=4,
+            num_samples=samples,
             garment_category=garment_category,
         )
 
