@@ -3,6 +3,7 @@ import tempfile
 import pillow_avif
 
 from oot_diffusion.inference_with_mask import OOTDiffusionWithMaskModel
+from timeout_decorator import timeout
 
 
 class Predictor(BasePredictor):
@@ -13,7 +14,7 @@ class Predictor(BasePredictor):
 
         return self.model
 
-    # The arguments and types the model takes as input
+    @timeout(20)
     def predict(
         self,
         model_image: Path = Input(

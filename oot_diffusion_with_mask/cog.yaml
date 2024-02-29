@@ -10,5 +10,6 @@ build:
     - "ninja==1.10.2"
     - "torch==2.0.1"
     - "pillow-avif-plugin"
+    - "timeout_decorator"
     - "git+https://github.com/leonmak/oot_diffusion.git"
 predict: "predict.py:Predictor"
