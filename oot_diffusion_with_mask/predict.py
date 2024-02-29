@@ -1,5 +1,6 @@
 from cog import BasePredictor, Input, Path
 import tempfile
+import pillow_avif
 
 from oot_diffusion.inference_with_mask import OOTDiffusionWithMaskModel
 
