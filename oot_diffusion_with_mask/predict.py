@@ -14,7 +14,7 @@ class Predictor(BasePredictor):
 
         return self.model
 
-    @timeout(20)
+    @timeout(30)
     def predict(
         self,
         model_image: Path = Input(
