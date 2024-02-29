@@ -33,8 +33,8 @@ class Predictor(BasePredictor):
                           ge=0, le=0xFFFFFFFFFFFFFFFF),
         garment_category: str = Input(
             default="upperbody", description="upperbody, lowerbody, dress"),
-        samples: int = Input(default=1, description="Seed", ge=0),
-
+        samples: int = Input(
+            default=1, description="Number of output images", ge=0),
     ) -> list[Path]:
         """Run a single prediction on the model"""
         generated_images, mask_image = self.model.generate(
