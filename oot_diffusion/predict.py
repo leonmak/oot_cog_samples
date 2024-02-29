@@ -42,7 +42,7 @@ class Predictor(BasePredictor):
             cfg=guidance_scale,
             seed=seed,
             num_samples=4,
-            garment_categor=garment_category,
+            garment_category=garment_category,
         )
 
         result_paths: list[Path] = []
